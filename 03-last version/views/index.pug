@@ -1,0 +1,48 @@
+DOCTYPE
+html
+	head
+		meta(charset="UTF-8")
+		meta(name='viewport', content='width=device-width, initial-scale=1.0')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		link(rel='stylesheet', href='/static/css/common-styles.css')
+		title To Do List
+		link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.0.13/css/all.css', integrity='sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp', crossorigin='anonymous')
+		script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+		script(type='text/javascript', src='/static/js/todolist.js')
+	body
+		h1.header TO DO LIST
+		main(class='main-body', id='main-body')
+			div(class='main-row')
+				div(class='select-all')
+					label.lbl-add-task Add Task
+				div
+					input(class='text-box', id='textbox' type='text')
+				div(class='add-to-do-data')
+					button(class='button-enter') Enter
+			div(class='to-do-list')
+				div(id='to-do-list-not-done', class='to-do-list-sub')
+					h3 Not Done
+					each objToDoData, i in todos
+						if !objToDoData.chkData && objToDoData.toDoData!=""
+							div(id=objToDoData._id, class='row draggable', draggable='true')
+								div
+									input(class='chk-unique', type='checkbox')
+								div(class='to-do-font')
+									p(class='para-to-do-data') !{objToDoData.toDoData}
+								div(class='delete')
+									i(class='fas fa-times')
+				div(id='to-do-list-done', class='to-do-list-sub')
+					h3 Done
+					each objToDoData, i in todos
+						if objToDoData.toDoData!="" && objToDoData.chkData
+							div(id=objToDoData._id, class='row draggable', draggable='true')
+								div
+									input(class='chk-unique', type='checkbox')
+								div(class='to-do-font')
+									p(class='para-to-do-data') !{objToDoData.toDoData}
+								div(class='delete')
+									i(class='fas fa-times')
+		script.
+			arrTodos=!{JSON.stringify(todos)};
+		noscript
+			h3 This site requires Javascript

@@ -1,0 +1,50 @@
+DOCTYPE
+html
+	head
+		meta(charset="UTF-8")
+		meta(name='viewport', content='width=device-width, initial-scale=1.0')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		link(rel='stylesheet', href='/static/css/common-styles.css')
+		title To Do List
+		link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.0.13/css/all.css', integrity='sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp', crossorigin='anonymous')
+		script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+		script(type='text/javascript', src='/static/js/todolist.js')
+	body
+		h1.header TO DO LIST
+		main(class='main-body', id='main-body')
+			form(action='/ope', method='POST')
+				div(class='main-row')
+					div(class='select-all')
+						input(class='all', id='all', type='checkbox')
+						label.lbl-select-all select All
+					div
+						input(class='text-box', id='textbox', name='textbox', type='text')
+					div(class='add-to-do-data')
+						input(class='button-enter', type='submit', value='Enter')
+			div(class='to-do-list')
+				div(id='to-do-list-not-done', class='to-do-list-sub')
+					h3 Not Done
+					each objToDoData, i in todolistdatas
+						if !objToDoData.chkData && objToDoData.toDoData!=""
+							div(id='row-'+objToDoData.id, class='row draggable', draggable='true')
+								div(id='div-chk-'+objToDoData.id)
+									input(class='chk-unique', id='chk-'+objToDoData.id, type='checkbox')
+								div(class='to-do-font')
+									p(class='para-to-do-data', id='p-'+objToDoData.id) !{objToDoData.toDoData}
+								div(class='delete', id='del-'+objToDoData.id)
+									i(class='fas fa-times')
+				div(id='to-do-list-done', class='to-do-list-sub')
+					h3 Done
+					each objToDoData, i in todolistdatas
+						if objToDoData.toDoData!="" && objToDoData.chkData
+							div(id='row-'+objToDoData.id, class='row draggable', draggable='true')
+								div(id='div-chk-'+objToDoData.id)
+									input(class='chk-unique', id='chk-'+objToDoData.id, type='checkbox')
+								div(class='to-do-font')
+									p(class='para-to-do-data', id='p-'+objToDoData.id) !{objToDoData.toDoData}
+								div(class='delete', id='del-'+objToDoData.id)
+									i(class='fas fa-times')
+		script.
+			onDisplayOfElements(!{JSON.stringify(todolistdatas)});
+		noscript
+			h3 This site requires Javascript

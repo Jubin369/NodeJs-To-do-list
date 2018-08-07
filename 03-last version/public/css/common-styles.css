@@ -1,0 +1,141 @@
+@import url(https://fonts.googleapis.com/css?family=Pacifico|Open+Sans:300);
+
+
+body{
+	width: 100%;
+	min-height: 100%;
+	margin: 0;
+	font-family: 'Roboto', 'Noto', sans-serif;
+	background-image: url("https://image.ibb.co/i2XLmT/background2.jpg");
+	background-size: cover;
+}
+
+.header{
+	font-family: 'Pacifico';
+	text-align: center;
+    font-size: 1.5em;
+    background: darkblue;
+    line-height: 48px;
+    border-radius: 6px;
+    width: 100%;
+    color: white;
+}
+
+.main-body{
+	margin:auto;
+	padding: 54px;
+    border-radius: 6px;
+    width: 65%;
+	height: 100%;
+}
+
+.main-row{
+	width: 100%;
+
+	display:grid;
+	grid-template-columns:25% 60% 15%;
+	margin-bottom: 10px;
+}
+
+.to-do-list{
+	display: grid;
+	grid-template-columns:50% 50%;
+	height: 80%;
+}
+
+.to-do-list-sub{
+	overflow: auto;
+	height: 100%;
+}
+
+.row{
+	width: 93%;
+	display:grid;
+	grid-template-columns:9% 75% 10%;
+	margin-bottom: 10px;
+}
+
+.lbl-add-task{
+	font-family: 'Pacifico';
+	position: relative;
+  bottom: 10px;
+	line-height: 59px;
+}
+
+.add-to-do-data{
+	padding-left: 3px;
+	line-height: 38px;
+}
+
+.button-enter{
+	color: pink;
+  background-color: purple;
+  padding: 10px;
+  border-radius: 12px;
+}
+
+.draggable{
+	cursor: all-scroll;
+	background-color: greenyellow;
+    border-radius: 10px;
+}
+
+.all{
+	height: 32px;
+}
+
+.text-box{
+	width: 100%;
+    height: 34px;
+    border: 0;
+    color: purple;
+    font-weight: bold;
+}
+
+.text-strike{
+	text-decoration: line-through;
+}
+
+.to-do-font{
+	height: 100%;
+}
+
+.para-to-do-data{
+	color: #434A54;
+	word-break:break-all;
+}
+
+.chk-unique{
+	margin-top: 20px;
+}
+
+.delete{
+	height: 34px;
+	padding-left: 20px;
+	padding-top: 17px;
+}
+
+@media screen and (max-width: 800px){
+	.to-do-list{
+		display: grid;
+		grid-template-columns:100%;
+	}
+	.main-body{
+		width: 60%;
+	}
+
+}
+
+@media screen and (max-width: 530px){
+
+	.main-body{
+		width: 90%;
+		padding: 0;
+	}
+
+	.main-row {
+    display: grid;
+    grid-template-columns: 25% 50% 10%;
+	}
+
+}
