@@ -17,7 +17,7 @@
     "body-parser": "^1.18.3",
     "chai-http": "^4.0.0",
     "express": "^4.16.3",
-    "mongoose": "^5.1.2",
+    "mongoose": "^5.13.13",
     "path": "^0.12.7",
     "pug": "^2.0.3",
     "request": "^2.87.0"

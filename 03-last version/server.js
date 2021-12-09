@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 const bodyParser = require('body-parser');
 //Connecting to mongodb
-mongoose.connect('mongodb://admin:admin123@127.0.0.1:27017/admin');
+mongoose.connect('mongodb+srv://jubin:Check123@cluster0.hh3t3.mongodb.net/Todos?retryWrites=true&w=majority', { useNewUrlParser: true });
 let db = mongoose.connection;
 
 db.once('open',function(){
